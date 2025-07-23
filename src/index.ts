@@ -1,14 +1,14 @@
 import { env, WorkerEntrypoint } from "cloudflare:workers"
 import { createLogger, type Logger } from "@gambonny/cflo"
-import { type TokenPayload, extractPayload } from "@schemas"
 import { decode, verify } from "@tsndr/cloudflare-worker-jwt"
+import { type TokenPayload, extractPayload } from "@/schemas"
 
 const logger = createLogger({
   level: env.LOG_LEVEL,
   format: env.LOG_FORMAT,
 })
 
-export class TKNVLDTR extends WorkerEntrypoint {
+export class TokenVerifier extends WorkerEntrypoint {
   env: Env
   logger: Logger
 
