@@ -18,7 +18,9 @@ import * as v from "valibot"
  *   console.error(result.issues)
  * }
  */
-export function extract<TSchema extends v.BaseSchema<any, any, any>>(
+export function extract<
+  TSchema extends v.BaseSchema<any, any, v.BaseIssue<unknown>>,
+>(
   schema: TSchema,
   input: unknown,
 ):
