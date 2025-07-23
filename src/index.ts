@@ -35,7 +35,6 @@ export class TokenVerifier extends WorkerEntrypoint {
 
     if (success) {
       this.logger.info("Token verified")
-      console.log("issues: ", issues)
       return output
     }
 
