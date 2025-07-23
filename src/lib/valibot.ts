@@ -39,6 +39,6 @@ export function extract<
   return {
     success: false,
     output: undefined,
-    issues: v.flatten(result.issues).nested,
+    issues: v.flatten<TSchema>(result.issues).nested,
   }
 }

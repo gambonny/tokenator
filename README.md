@@ -1,4 +1,4 @@
-# Token Verifier
+# Tokenator
 
 Stateless JWT verifier for Cloudflare Workers.
 Used to guard routes in distributed apps. No public HTTP access —  only callable via RPC.
@@ -15,9 +15,9 @@ Example binding:
 ```jsonc
 {
   "services" : [{
-    "service": "token-verifier",
-    "binding": "TOKEN_VERIFIER",
-    "entrypoint": "TokenVerifier"
+    "service": "tokenator",
+    "binding": "TOKENATOR",
+    "entrypoint": "Tokenator"
   }]
 }
 ```

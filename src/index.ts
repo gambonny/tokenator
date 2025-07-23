@@ -8,7 +8,7 @@ const logger = createLogger({
   format: env.LOG_FORMAT,
 })
 
-export class TokenVerifier extends WorkerEntrypoint {
+export class Tokenator extends WorkerEntrypoint {
   env: Env
   logger: Logger
 
