@@ -1,5 +1,7 @@
-import { createLogger, type Logger } from "@gambonny/cflo"
 import { env, WorkerEntrypoint } from "cloudflare:workers"
+import { createLogger, type Logger } from "@gambonny/cflo"
+import { type TokenPayload, extractPayload } from "@schemas"
+import { decode, verify } from "@tsndr/cloudflare-worker-jwt"
 
 const logger = createLogger({
   level: env.LOG_LEVEL,
@@ -14,5 +16,30 @@ export class TKNVLDTR extends WorkerEntrypoint {
     super(ctx, env)
     this.env = env
     this.logger = logger
+  }
+
+  async decodeToken(token: string): Promise<TokenPayload | false> {
+    if (!env.JWT_TOKEN) {
+      this.logger.error("JWT_TOKEN not present")
+      return false
+    }
+
+    try {
+      await verify(token, env.JWT_TOKEN)
+    } catch (e: unknown) {
+      this.logger.warn("Token verification failed", { error: String(e) })
+      return false
+    }
+
+    const { success, output, issues } = extractPayload(decode(token).payload)
+
+    if (success) {
+      this.logger.info("Token verified")
+      console.log("issues: ", issues)
+      return output
+    }
+
+    this.logger.error("Token invalid", issues)
+    return false
   }
 }
