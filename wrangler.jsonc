@@ -5,5 +5,9 @@
 	"compatibility_date": "2025-07-23",
 	"observability": {
 		"enabled": true
-	}
+	},
+  "vars": {
+    "LOG_LEVEL": "info",
+    "LOG_FORMAT": "json"
+  }
 }
