@@ -38,7 +38,7 @@ export class Tokenator extends WorkerEntrypoint {
       return output
     }
 
-    this.logger.error("Token invalid", issues)
+    this.logger.error("Token invalid", { issues })
     return false
   }
 }
