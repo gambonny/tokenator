@@ -1,11 +1,11 @@
 {
-	"$schema": "node_modules/wrangler/config-schema.json",
-	"name": "tokenator",
-	"main": "src/index.ts",
-	"compatibility_date": "2025-07-23",
-	"observability": {
-		"enabled": true
-	},
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "tokenator",
+  "main": "src/index.ts",
+  "compatibility_date": "2025-07-23",
+  "observability": {
+    "enabled": true
+  },
   "vars": {
     "LOG_LEVEL": "info",
     "LOG_FORMAT": "json"
