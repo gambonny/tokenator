@@ -11,6 +11,9 @@ importers:
       '@gambonny/cflo':
         specifier: ^0.0.14
         version: 0.0.14(typescript@5.8.3)
+      '@gambonny/valext':
+        specifier: ^0.1.0
+        version: 0.1.0(valibot@1.1.0(typescript@5.8.3))
       '@tsndr/cloudflare-worker-jwt':
         specifier: ^3.2.0
         version: 3.2.0
@@ -462,6 +465,11 @@ packages:
     peerDependenciesMeta:
       hono:
         optional: true
+
+  '@gambonny/valext@0.1.0':
+    resolution: {integrity: sha512-bqyqQdvIVSvjqb7VioLpA9NL+bsogA0MAHmdlaCMnc7WBKHsPtWj7K902GdheL+x38HPIVn/K8Cq8a9lO3zpjQ==}
+    peerDependencies:
+      valibot: ^1.1.0
 
   '@img/sharp-darwin-arm64@0.33.5':
     resolution: {integrity: sha512-UT4p+iz/2H4twwAoLCqfA9UH5pI6DggwKEGuaPy7nCVQ8ZsiY5PIcrRvD1DzuY3qYL07NtIQcWnBSY/heikIFQ==}
@@ -1420,6 +1428,10 @@ snapshots:
       valibot: 1.1.0(typescript@5.8.3)
     transitivePeerDependencies:
       - typescript
+
+  '@gambonny/valext@0.1.0(valibot@1.1.0(typescript@5.8.3))':
+    dependencies:
+      valibot: 1.1.0(typescript@5.8.3)
 
   '@img/sharp-darwin-arm64@0.33.5':
     optionalDependencies:

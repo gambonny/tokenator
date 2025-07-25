@@ -1,7 +1,8 @@
 import { env, WorkerEntrypoint } from "cloudflare:workers"
 import { createLogger, type Logger } from "@gambonny/cflo"
+import { extract } from "@gambonny/valext"
 import { decode, verify } from "@tsndr/cloudflare-worker-jwt"
-import { type TokenPayload, extractPayload } from "@/schemas"
+import { payload, type TokenPayload } from "@/schemas"
 
 const logger = createLogger({
   level: env.LOG_LEVEL,
@@ -31,14 +32,16 @@ export class Tokenator extends WorkerEntrypoint {
       return false
     }
 
-    const { success, output, issues } = extractPayload(decode(token).payload)
+    const { success, output } = extract(payload).from(
+      decode(token).payload,
+      issues => {
+        this.logger.error("Token invalid", { issues })
+      },
+    )
 
-    if (success) {
-      this.logger.info("Token verified")
-      return output
-    }
+    if (!success) return false
 
-    this.logger.error("Token invalid", { issues })
-    return false
+    this.logger.info("Token verified")
+    return output
   }
 }
