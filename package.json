@@ -8,6 +8,7 @@
     "test": "vitest",
     "check": "pnpm biome check",
     "format": "pnpm biome format --write",
+    "lint": "pnpm biome lint",
     "cf-typegen": "wrangler types"
   },
   "devDependencies": {
