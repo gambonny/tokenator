@@ -46,4 +46,8 @@ export class Tokenator extends WorkerEntrypoint {
   }
 }
 
-export default Tokenator
+export default {
+  async fetch(): Promise<Response> {
+    return new Response("Hello World!")
+  },
+} satisfies ExportedHandler<Env>
