@@ -45,3 +45,5 @@ export class Tokenator extends WorkerEntrypoint {
     return output
   }
 }
+
+export default Tokenator
