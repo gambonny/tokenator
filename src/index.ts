@@ -26,7 +26,7 @@ export class Tokenator extends WorkerEntrypoint {
     }
 
     try {
-      await verify(token, env.JWT_TOKEN)
+      await verify(token, env.JWT_SECRET)
     } catch (e: unknown) {
       this.logger.warn("Token verification failed", { error: String(e) })
       return false
