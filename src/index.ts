@@ -20,8 +20,8 @@ export class Tokenator extends WorkerEntrypoint {
   }
 
   async decodeToken(token: string): Promise<TokenPayload | false> {
-    if (!env.JWT_TOKEN) {
-      this.logger.error("JWT_TOKEN not present")
+    if (!env.JWT_SECRET) {
+      this.logger.error("JWT_SECRET not present")
       return false
     }
 
