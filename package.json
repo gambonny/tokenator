@@ -4,12 +4,13 @@
   "private": true,
   "scripts": {
     "dev": "wrangler dev --local",
-    "deploy": "npx wrangler deploy",
+    "deploy": "wrangler deploy",
     "test": "vitest",
     "check": "pnpm biome check",
     "format": "pnpm biome format --write",
     "lint": "pnpm biome lint",
-    "cf-typegen": "wrangler types"
+    "cf-typegen": "wrangler types",
+    "typecheck": "tsc"
   },
   "devDependencies": {
     "@biomejs/biome": "2.1.2",
