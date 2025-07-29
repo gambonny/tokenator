@@ -10,7 +10,7 @@
     "format": "pnpm biome format --write",
     "lint": "pnpm biome lint",
     "cf-typegen": "wrangler types",
-    "typecheck": "tsc"
+    "typecheck": "tsc -p tsconfig.build.json"
   },
   "devDependencies": {
     "@biomejs/biome": "2.1.2",
